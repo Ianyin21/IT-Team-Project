@@ -9,6 +9,7 @@
 
 ## Requirement
 python3
+
 pip install django==2.1.5
 
 ## Guide
