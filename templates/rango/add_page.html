@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block body_block %}
-<h1>Add a Page to {{category.name}}</h1>
+<h1>Add a Post to {{category.name}}</h1>
 	<div>
 		<form id="add_page_form" method="post" action="/rango/category/{{ category.slug }}/add_page/">
 
@@ -14,7 +14,11 @@
 
 
 			{% if category %}
-				<a href="/rango/category/{{category.slug }}/add_page/">Add Page</a> <br/>
+{#				<a href="/rango/category/{{category.slug }}/add_page/">Add Post</a> <br/>#}
+                <br>
+                You can add a post below.
+                <br>
+                <br>
 			{% else %}
 				The specified category does not exist
 				#The category doesn't exist
@@ -28,7 +32,7 @@
 				{{ field.help_text }}
 				{{ field }}
 			{% endfor %}
-			<input type="submit" name="submit" value="Add Page" />
+			<input type="submit" name="submit" value="Add Post" />
 		</form>
 	</div>
 {% endblock %}
