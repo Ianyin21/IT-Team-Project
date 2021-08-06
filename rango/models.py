@@ -41,3 +41,40 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class Tag(models.Model):
+    # tag and post: many to many relationship
+    name  = models.CharField(max_length=35)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=128)
+    content = models.TextField()
+    # one user many post, one post has only one user
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    created_at = models.DateField(auto_now_add=True)
+    tags = models.ManyToManyField(Tag)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['created_at']
+
+
+class Comment(models.Model):
+    content = models.TextField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['created_at']
+
+    def __str__(self):
+        return self.content[:10]
+
+
+
