@@ -94,7 +94,6 @@
                             <i class="el-icon-location"></i>
                             <span>Main</span>
                         </template>
-                        <el-menu-item index="1-1"><a href="{% url 'rango:hots' %}">Hots</a></el-menu-item>
                         <el-menu-item index="1-2"><a href="{% url 'rango:index' %}">Index</a></el-menu-item>
                     </el-submenu>
                     <el-submenu index="2">
@@ -102,6 +101,7 @@
                             <i class="el-icon-location"></i>
                             <span>User</span>
                         </template>
+                        <el-menu-item index="1-1"><a href="{% url 'rango:createpost' %}">Create Post</a></el-menu-item>
                         <el-menu-item index="2-1"><a href="{% url 'rango:add_category' %}">Add New Category</a></el-menu-item>
                         <el-menu-item index="2-2"><a href="{% url 'rango:about' %}">About</a></el-menu-item>
                     </el-submenu>
