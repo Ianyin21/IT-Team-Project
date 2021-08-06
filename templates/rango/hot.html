@@ -1,0 +1,38 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	{% if page %}
+		{{ page.title }}
+	{% else %}
+		Unknown Post
+	{% endif %}
+{% endblock %}
+
+{% block body_block %}
+    		<h2>Top 3 Hot News</h2>
+    <br>
+
+		{% if pages%}
+		<ul>
+			{% for p in pages %}
+					<!-- The following line is changed to add an HTML hyperlink -->
+                    <strong>Title: {{ p.title }}</strong>
+                    <p>Content: {{ p.content }}</p>
+
+                <br>
+			{% endfor %}
+		</ul>
+		{% else %}
+			<strong>There are no pages present.</strong>
+		{% endif %}
+
+
+{% endblock %}
+
+
+
+
+
+
+
