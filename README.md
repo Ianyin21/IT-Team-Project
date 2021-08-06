@@ -14,6 +14,9 @@ pip install django==2.1.5
 
 ## Guide
 python manage.py makemigrations
+
 python manage.py migrate
+
 python manage.py createsuperuser (This creates the administrator ID for you to log in.)
+
 python manage.py runserver
