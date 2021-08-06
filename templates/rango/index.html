@@ -25,20 +25,21 @@
 	</div>
 <div>
 
-{#<div>#}
-{#        <div>#}
-{#            <h2>Most Liked Categories</h2>#}
-{#        </div>#}
-{#        {% if categories %}#}
-{#        <ul>#}
-{#            {% for category in categories %}#}
-{#            <li><a href="/rango/category/{{ category.url }}">{{ category.name }}</a></li>#}
-{#            {% endfor %}#}
-{#        </ul>#}
-{#        {% else %}#}
-{#        <strong>No categories at present.</strong>#}
-{#        {% endif %}#}
-{#</div>#}
+<div>
+        <div>
+            <h2>Categories</h2>
+        </div>
+        {% if categories %}
+        <ul>
+            {% for category in categories %}
+                <li><a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a></li>
+
+            {% endfor %}
+        </ul>
+        {% else %}
+        <strong>No categories at present.</strong>
+        {% endif %}
+</div>
     <div>
 
         <div>
