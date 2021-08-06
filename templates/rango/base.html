@@ -83,14 +83,16 @@
                     default-active="1-2"
                     class="el-menu-vertical-demo"
                     @select="handleSelect"
-                    text-color="#fff"
-                    background-color="#545c64"
+{#                    text-color="#fff"#}
+                    text-color="#1684FC"
+{#                    background-color="#545c64"#}
+                    background-color="#EFEFEF"
                     default-openeds="[1, 2]"
                 >
                     <el-submenu index="1">
                         <template slot="title">
                             <i class="el-icon-location"></i>
-                            <span>导航一</span>
+                            <span>Main</span>
                         </template>
                         <el-menu-item index="1-1"><a href="{% url 'rango:hots' %}">Hots</a></el-menu-item>
                         <el-menu-item index="1-2"><a href="{% url 'rango:index' %}">Index</a></el-menu-item>
@@ -98,7 +100,7 @@
                     <el-submenu index="2">
                         <template slot="title">
                             <i class="el-icon-location"></i>
-                            <span>导航一</span>
+                            <span>User</span>
                         </template>
                         <el-menu-item index="2-1"><a href="{% url 'rango:add_category' %}">Add New Category</a></el-menu-item>
                         <el-menu-item index="2-2"><a href="{% url 'rango:about' %}">About</a></el-menu-item>
