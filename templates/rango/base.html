@@ -6,40 +6,142 @@
 <html>
 	<head lang="en">
         <meta charset="UTF-8">
-		<title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
             Rango -
 			{% block title_block %}
 				How to Tango with Django!
 			{% endblock %}
         </title>
+{#    <script src="../../static/js/vue/vue.min.js"></script>#}
+{#    <script src="../../static/js/element-ui/index.js"></script>#}
+{#    <link rel="stylesheet" href="../../static/js/element-ui/theme-chalk/index.css">#}
+   <script src="{% static 'js/vue/vue.min.js'%}" type="text/javascript"></script>
+    <script src="{% static 'js/element-ui/index.js'%}" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'js/element-ui/theme-chalk/index.css'%}">
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html,
+        body,
+        #app,
+        .el-container,
+        .el-menu {
+            height: 100%;
+        }
+
+        .el-row {
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .el-header {
+            background-color: #1684FC;
+            color: #fff;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+
 	</head>
-	<body>
-        <div>
-		{% block body_block %}
-		{% endblock %}
-        </div>
-        <div>
-			{% block sidebar_block %}
-				{% get_category_list %}
-			{% endblock %}
-		</div>
-        <hr/>
-		<div>
-			<ul>
-                {% if user.is_authenticated %}
-                    <!-- Show these links when the user is logged in -->
-                    <li><a href="{% url 'rango:restricted' %}">Restricted Page</a></li>
-                    <li><a href="{% url 'rango:logout' %}">Logout</a></li>
-                    <li><a href="{% url 'rango:add_category' %}">Add New Category</a></li>
-                {% else %}
-                    <!-- Show these links when the user is NOT logged in -->
-                    <li><a href="{% url 'rango:register' %}">Sign Up</a></li>
-                    <li><a href="{% url 'rango:login' %}">Login</a></li>
-                {% endif %}
-                    <!-- Outside the conditional statements, ALWAYS show -->
-                    <li><a href="{% url 'rango:about' %}">About</a></li>
-                    <li><a href="{% url 'rango:index' %}">Index</a></li>
-			</ul>
-		</div>
-	</body>
+
+<body>
+    <div id="app" v-cloak>
+        <el-container>
+            <el-header>
+                <el-row>
+                    <el-col :span="12">
+                        <h1 style="margin-left: 60px;">SoulHole</h1>
+                    </el-col>                        <el-col :span="12">
+                        	<div>
+                                <ul>
+                                    {% if user.is_authenticated %}
+                                        <!-- Show these links when the user is logged in -->
+                                        <span style="float: right;"><a href="{% url 'rango:restricted' %}">Restricted Page</a></span>
+                                        <span style="float: right; margin-right: 30px;"><a href="{% url 'rango:logout' %}">Logout</a></span>
+                                    {% else %}
+                                        <!-- Show these links when the user is NOT logged in -->
+                                        <span style="float: right;"><a href="{% url 'rango:login' %}">Login</a></span>
+                                        <span style="float: right; margin-right: 30px;"><a href="{% url 'rango:register' %}">Sign Up</a></span>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </el-col>
+                </el-row>
+            </el-header>
+
+            <el-container>
+            <el-aside width="200px">
+                <el-menu
+                    default-active="1-2"
+                    class="el-menu-vertical-demo"
+                    @select="handleSelect"
+                    text-color="#fff"
+                    background-color="#545c64"
+                    default-openeds="[1, 2]"
+                >
+                    <el-submenu index="1">
+                        <template slot="title">
+                            <i class="el-icon-location"></i>
+                            <span>导航一</span>
+                        </template>
+                        <el-menu-item index="1-1"><a href="{% url 'rango:hots' %}">Hots</a></el-menu-item>
+                        <el-menu-item index="1-2"><a href="{% url 'rango:index' %}">Index</a></el-menu-item>
+                    </el-submenu>
+                    <el-submenu index="2">
+                        <template slot="title">
+                            <i class="el-icon-location"></i>
+                            <span>导航一</span>
+                        </template>
+                        <el-menu-item index="2-1"><a href="{% url 'rango:add_category' %}">Add New Category</a></el-menu-item>
+                        <el-menu-item index="2-2"><a href="{% url 'rango:about' %}">About</a></el-menu-item>
+                    </el-submenu>
+                </el-menu>
+
+            </el-aside>
+            <el-main>
+                <div>
+                {% block body_block %}
+                {% endblock %}
+                </div>
+
+
+
+            </el-main>
+            </el-container>
+        </el-container>
+    </div>
+
+
+</body>
+
 </html>
+
+<script>
+
+    // 双向绑定写法
+    new Vue({
+        el: '#app',
+        data: {
+
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+
+                location.href = './index.html'
+            },
+        },
+        mounted: function () {
+
+        }
+    })
+
+</script>
