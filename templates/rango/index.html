@@ -6,29 +6,20 @@
 {% endblock %}
 
 {% block body_block %}
-<h1>Rango says...</h1>
+<h1>Welcome to SoulHole!</h1>
     {% if user.is_authenticated %}
-	howdy {{ user.username }}!
+	Hello {{ user.username }}!
 	{% else %}
-	hey there partner!
+	Hey there partner!
 	{% endif %}
 
 <div>
-		{% if categories%}
-		<ul>
-			{% for category in categories %}
-				<li>
-					<!-- The following line is changed to add an HTML hyperlink -->
-					<a href="{% url 'rango:show_category' category.slug %}">
-						{{ category.name }}
-					</a>
-				</li>
-			{% endfor %}
-		</ul>
-		{% else %}
-			<strong>There are no categories present.</strong>
-		{% endif %}
+
+    The website is designed for final project of Internet Technology.
+    <br>
+
 </div>
+
 	<div>
 		<h2>Most Liked Categories</h2>
 	{% if categories %}
