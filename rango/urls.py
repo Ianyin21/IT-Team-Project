@@ -8,6 +8,8 @@ app_name = 'rango'
 urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
+    path('user/', views.user, name='user'),
+
     path('createpost/', views.createpost, name='createpost'),
 
     path('category/<slug:category_name_slug>/',

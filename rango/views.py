@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from rango.models import Category
+from rango.models import Category, UserProfile
 from rango.models import Page
 from rango.forms import CategoryForm
 from django.shortcuts import redirect
@@ -41,6 +41,16 @@ def createpost(request):
     response = render(request, 'rango/createpost.html', context=context_dict)
     return response
 
+def user(request):
+    current_user = request.user
+    userprofile = UserProfile.objects.get(pk=1)
+
+    context_dict = {}
+    context_dict['userprofile'] = userprofile
+    visitor_cookie_handler(request)
+
+    response = render(request, 'rango/user.html', context=context_dict)
+    return response
 
 def about(request):
     context_dict = {}

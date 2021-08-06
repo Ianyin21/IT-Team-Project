@@ -1,0 +1,26 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% load rango_template_tags %}
+
+
+{% block title_block %}
+    Homepage
+{% endblock %}
+
+{% block body_block %}
+<h1>Profile</h1>
+    {% if user.is_authenticated %}
+        <p>Name: {{ user.username }} </p>
+        <p>Website: <a href="{{ userprofile.website }}">{{ userprofile.website }}</a> </p>
+        <p>Photo: </p>
+        <img src="{{ MEDIA_URL }}{{ userprofile.picture }}" alt="Picture of a Cat." />
+
+
+	{% else %}
+	Hey there partner! Please Login.
+	{% endif %}
+
+
+
+
+{% endblock %}
