@@ -2,10 +2,10 @@
 {% load staticfiles %}
 
 {% block title_block %}
-	{% if page %}
-		{{ page.title }}
+	{% if pages %}
+		Hot News
 	{% else %}
-		Unknown Post
+		Unknown
 	{% endif %}
 {% endblock %}
 
@@ -18,8 +18,12 @@
 			{% for p in pages %}
 					<!-- The following line is changed to add an HTML hyperlink -->
                     <strong>Title: {{ p.title }}</strong>
+                    <p>Views: {{ p.views }}</p>
                     <p>Content: {{ p.content }}</p>
+                    <p>Image: </p>
+                     <img src="{{ p.url }}" alt="Picture of post" width="150" height="150"/>
 
+                <br>
                 <br>
 			{% endfor %}
 		</ul>
