@@ -38,7 +38,7 @@ def createpost(request):
 
     visitor_cookie_handler(request)
 
-    response = render(request, 'rango/hots.html', context=context_dict)
+    response = render(request, 'rango/createpost.html', context=context_dict)
     return response
 
 
