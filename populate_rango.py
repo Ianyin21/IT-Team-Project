@@ -11,35 +11,35 @@ from rango.models import Category, Page
 def populate():
     python_pages = [
         {'title': 'Official Python Tutorial',
-         'url': 'http://docs.python.org/3/tutorial/',
+         'url': 'https://pic.qqtn.com/up/2019-9/15690311636958128.jpg',
          'views': 1},
         {'title': 'How to Think like a Computer Scientist',
-         'url': 'http://www.greenteapress.com/thinkpython/',
+         'url': 'https://pic.qqtn.com/up/2019-9/15690311636958128.jpg',
          'views': 2},
         {'title': 'Learn Python in 10 Minutes',
-         'url': 'http://www.korokithakis.net/tutorials/python/',
+         'url': 'https://pic.qqtn.com/up/2019-9/15690311636958128.jpg',
          'views': 3}]
 
     django_pages = [
         {'title': 'Official Django Tutorial',
-         'url': 'https://docs.djangoproject.com/en/2.1/intro/tutorial01/',
+         'url': 'https://pic.qqtn.com/up/2019-9/15690311636958128.jpg',
          'views': 4},
 
         {'title': 'Django Rocks',
-         'url': 'http://www.djangorocks.com/',
+         'url': 'https://pic.qqtn.com/up/2019-9/15690311636958128.jpg',
          'views': 5},
 
         {'title': 'How to Tango with Django',
-         'url': 'http://www.tangowithdjango.com/',
+         'url': 'https://pic.qqtn.com/up/2019-9/15690311636958128.jpg',
          'views': 6}]
 
     other_pages = [
         {'title': 'Bottle',
-         'url': 'http://bottlepy.org/docs/dev/',
+         'url': 'https://pic.qqtn.com/up/2019-9/15690311636958128.jpg',
          'views': 7},
 
         {'title': 'Flask',
-         'url': 'http://flask.pocoo.org',
+         'url': 'https://pic.qqtn.com/up/2019-9/15690311636958128.jpg',
          'views': 8}]
 
     cats = {'Python': {'pages': python_pages, 'views': 128, 'likes': 64},

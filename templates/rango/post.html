@@ -1,0 +1,26 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	{% if page %}
+		{{ page.title }}
+	{% else %}
+		Unknown Post
+	{% endif %}
+{% endblock %}
+
+{% block body_block %}
+    <p>Title: {{ page.title  }} </p>
+    <p>Content: {{ page.content }}</p>
+        <p>Image: </p>
+        <img src="{{ page.url }}" alt="Picture of post" />
+
+
+{% endblock %}
+
+
+
+
+
+
+

@@ -73,6 +73,16 @@ def show_category(request, category_name_slug):
     return render(request, 'rango/category.html', context=context_dict)
 
 
+def show_page(request, page_name_slug):
+    context_dict = {}
+    try:
+        page = Page.objects.get(slug=page_name_slug)
+        context_dict['page'] = page
+    except Category.DoesNotExist:
+        context_dict['page'] = None
+    return render(request, 'rango/post.html', context=context_dict)
+
+
 @login_required
 def add_category(request):
     form = CategoryForm()
