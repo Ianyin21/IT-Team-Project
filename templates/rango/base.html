@@ -64,7 +64,7 @@
                                 <ul>
                                     {% if user.is_authenticated %}
                                         <!-- Show these links when the user is logged in -->
-                                        <span style="float: right;"><a href="{% url 'rango:restricted' %}">Restricted Page</a></span>
+{#                                        <span style="float: right;"><a href="{% url 'rango:restricted' %}">Restricted Page</a></span>#}
                                         <span style="float: right; margin-right: 30px;"><a href="{% url 'rango:logout' %}">Logout</a></span>
                                     {% else %}
                                         <!-- Show these links when the user is NOT logged in -->
